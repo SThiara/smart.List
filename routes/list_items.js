@@ -31,7 +31,8 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT name, category FROM list_items
-    WHERE category = 'watch'`;
+    WHERE category = 'watch'
+    ORDER BY name`;
     db.query(query)
       .then(data => {
         const items = data.rows;
