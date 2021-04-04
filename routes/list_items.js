@@ -45,7 +45,9 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
   return router;
+
 };
 
 // app.get('/urls', (req, res) => {
