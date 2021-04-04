@@ -18,10 +18,17 @@
     <%- include("./partials/_header"); %>
     <main class="d-flex flex-column mx-5 my-2">
       <section class="new-todo">
+        <div class="shadow-sm card-header mt-2">
+        <h3 >
+          My To-Do Lists
+        </h3>
+      </div>
+      <div class="card-body">
       <form class="d-flex flex-column" method="POST" action="/lists">
-        <textarea class="shadow border-0" placeholder="What's on your to do...?"></textarea>
+        <textarea class="form-control shadow border-0" placeholder="What's on your to do...?"></textarea>
         <button class="shadow-sm btn btn-success" type="submit">Submit</button>
       </form>
+    </div>
       </section>
       <section class="d-flex flex-row justify-content-between my-2 mx-0" id="list-container">
         <ul class="list-group col shadow">
