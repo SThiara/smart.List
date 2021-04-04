@@ -1,3 +1,5 @@
+<!-- boilerplate html to demonstate the list partial. it curently calls the same page for each category but with sorted content -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,21 +10,7 @@
 </head>
 <body>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col"><%= items[0].category %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% for(const item of items) { %>
-        <tr>
-          <td><%= item.name %></td>
-          </td>
-        </tr>
-      <% } %>
-    </tbody>
-  </table>
+  <%- include('partials/list.ejs') %>
 
 </body>
 </html>
