@@ -1,10 +1,9 @@
 // See: https://sass-lang.com/
 // Imports
 @import "../node_modules/bootstrap/scss/bootstrap";
-@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Roboto:wght@0,700;1,300");
-
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap');
 // Variables
-$font-stack: "Balsamiq Sans", "sans-serif";
+$font-stack: "Balsamiq Sans", cursive, "Roboto";
 $font-colour: #6E6E6E;
 $background: #FFFFFF;
 $nav-background: #FFA834;
@@ -24,6 +23,7 @@ body{
 
   .user{
     color:#ffffff;
+    font-family: "Roboto";
     }
   .bootstrap-cyan-button-normal-2 {
     width: 70px;
