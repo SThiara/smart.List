@@ -10,12 +10,6 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 
-// PG database client/connection setup
-const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
-db.connect();
-
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -34,18 +28,18 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
-const watchRoutes = require("./routes/watch");
+const watchRoutes = require("./routes/list-router");
 const eatRoutes = require("./routes/eat");
 const buyRoutes = require("./routes/buy");
 const readRoutes = require("./routes/read");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/watch", watchRoutes(db));
-app.use("/eat", eatRoutes(db));
-app.use("/buy", buyRoutes(db));
-app.use("/read", readRoutes(db));
+// app.use("/api/users", usersRoutes);
+app.use("/watch", watchRoutes);
+app.use("/eat", eatRoutes);
+app.use("/buy", buyRoutes);
+app.use("/read", readRoutes);
 
 // Note: mount other resources here, using the same pattern above
 
