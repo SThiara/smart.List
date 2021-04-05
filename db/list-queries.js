@@ -29,10 +29,6 @@ const addItem = (name, category, id) => {
     });
 };
 
-const addItem = (category, id) {
-
-}
-
 listByCategory('watch');
 
 module.exports = {
