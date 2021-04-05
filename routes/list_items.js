@@ -8,26 +8,6 @@
 const express = require('express');
 const router  = express.Router();
 
-// module.exports = (db) => {
-//   router.get("/", (req, res) => {
-//     let query = `SELECT name FROM list_items
-//     WHERE category = 'watch'`;
-//     console.log(query);
-//     db.query(query)
-//       .then(data => {
-//         const items = data.rows;
-//         res.json({ items });
-//       })
-//       .catch(err => {
-//         console.log('error', err);
-//         res
-//           .status(500)
-//           .json({ error: err.message });
-//       });
-//   });
-//   return router;
-// };
-
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT name, category FROM list_items
