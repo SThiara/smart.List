@@ -28,7 +28,7 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
-const watchRoutes = require("./routes/list-router");
+const watchRoutes = require("./routes/watch");
 const eatRoutes = require("./routes/eat");
 const buyRoutes = require("./routes/buy");
 const readRoutes = require("./routes/read");
