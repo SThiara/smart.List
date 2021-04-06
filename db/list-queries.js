@@ -29,8 +29,6 @@ const addItem = (name, userId, category) => {
     });
 };
 
-listByCategory('watch');
-
 module.exports = {
   listByCategory,
   addItem
