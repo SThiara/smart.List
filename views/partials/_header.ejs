@@ -1,16 +1,25 @@
 <nav class="shadow-sm navbar">
   <a class="navbar-brand" href="/">smart.List</a>
     <div class="user d-flex">
-      <img class="user-avatar mx-2" src="https://i.imgur.com/nlhLi3I.png">
+      <% if (user) {%>
+        <img class="user-avatar mx-2" src="https://i.imgur.com/nlhLi3I.png">
         <div class="mx-2 my-1">
-        <p class="user-name my-0"> John Doe</p>
-        <p class="user-email my-0">john@example.com</p>
-        <a href="/user/:id"><i class="fas fa-user-edit"> </i>  Edit your profile</i> </a>
+          <p class="user-name my-0"> <%= user.name%></p>
+          <p class="user-email my-0"> <%= user.email%></p>
+          <a href="/user/:id"> Edit your profile </a>
         </div>
         <form class="form-inline ml-3" action="/logout" method="POST">
           <button type="submit" class ="btn btn-outline-primary">
             Logout
           </button>
-      </form>
+        </form>
+      <%} else{%>
+        <form method="GET" action="/login/:id">
+          <button class="btn btn-outline-primary">Login</button>
+        </form>
+        <form method="GET" action="/login/:id">
+          <button class="btn btn-outline-success">Register</button>
+        </form>
+        <%} %>
     </div>
 </nav>
