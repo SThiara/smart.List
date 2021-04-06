@@ -29,10 +29,10 @@ $(() => {
   });
 
   $('form').on("submit", function(event) {
+    event.preventDefault();
     $('.error').hide()
     const len = $("#todo-text").val().trim().length;
     if (len){
-      event.preventDefault();
       $.ajax({
         method:'POST',
         url:'/lists/',
