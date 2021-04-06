@@ -1,9 +1,9 @@
 // See: https://sass-lang.com/
 // Imports
 @import "../node_modules/bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Roboto:wght@100&display=swap');
 // Variables
-$font-stack: "Balsamiq Sans", cursive, "Roboto";
+$font-stack: "Barlow", cursive, "Roboto";
 $font-colour: #6E6E6E;
 $background: #FFFFFF;
 $nav-background: #FFA834;
