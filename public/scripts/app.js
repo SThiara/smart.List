@@ -5,7 +5,7 @@ const escape =  function(str) {
 };
 
 const createToDoItem = (todo) => {
-  return `<li class=list-group-item>${escape(todo.contents)}</li>`;
+  return `<tr><th>${escape(todo)}</th></tr>`;
 };
 
 const renderTodos = (todos) => {
@@ -16,25 +16,14 @@ const renderTodos = (todos) => {
 };
 
 $(() => {
-  $('form').on("submit", function(event){
+  $('form').on("submit", function(event) {
     event.preventDefault();
     $.ajax({
       method:"POST",
       url:"/lists/",
       data: $(this).serialize(),
-      success: (() => {
-        console.log('posting into db success')
-        $.ajax({
-          method:"GET",
-          url:"/lists/",
-          // getting an array of all the list then rendering them out
-          success: (lists) => {
-            console.log(lists)
-            for(let list of lists){
-              renderTodos(list);
-            }
-          }
-        });
+      success: ((data) => {
+        $(`#${data.category}-items`).append(createToDoItem(`${data.name}`));
       })
     });
   })
