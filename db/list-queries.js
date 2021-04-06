@@ -16,15 +16,16 @@ const listByCategory = (category) => {
     });
 };
 
-const addItem = (name, category, id) => {
-  let query = `INSERT INTO list_items (name, user_id, category)
-  VALUES ($1, $2, $3) RETURNING *`;
-  return db.query(query, [name, category, id])
-    .then(data => {
+const addItem = (name, userId, category) => {
+  return db.query(`
+  INSERT INTO list_items (name, user_id, category)
+  VALUES ($1, $2, $3)
+  RETURNING *`, [name, userId, category])
+    .then(res => {
       if (res.rows.length === 0) {
         return null;
       }
-      const items = data.rows[0];
+      const items = res.rows[0];
       return items;
     });
 };
@@ -32,5 +33,6 @@ const addItem = (name, category, id) => {
 listByCategory('watch');
 
 module.exports = {
-  listByCategory
+  listByCategory,
+  addItem
 };

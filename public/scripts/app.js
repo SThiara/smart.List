@@ -5,36 +5,38 @@ const escape =  function(str) {
 };
 
 const createToDoItem = (todo) => {
-  return `<li class=list-group-item>${escape(todo.contents)}</li>`;
+  return `<tr><th>${escape(todo)}</th></tr>`;
 };
 
 const renderTodos = (todos) => {
   for(let todo of todos){
-    console.log('todo', todo);
-    // $(`#${todo.category}`).append(createToDoItem(todo.name));
+    // console.log('todo', todo);
+    $(`#${todo.category}-items`).append(createToDoItem(todo.name));
   }
 };
 
 $(() => {
-  $('form').on("submit", function(event){
+  // clear textarea and get correct lists for user on reload
+  $('#text').val('');
+  $.ajax({
+    method:'GET',
+    url: '/lists/',
+    success: (lists) => {
+      for (let list of lists){
+        renderTodos(list);
+      }
+    }
+  });
+
+  $('form').on("submit", function(event) {
     event.preventDefault();
     $.ajax({
-      method:"POST",
-      url:"/lists/",
+      method:'POST',
+      url:'/lists/',
       data: $(this).serialize(),
-      success: (() => {
-        console.log('posting into db success')
-        $.ajax({
-          method:"GET",
-          url:"/lists/",
-          // getting an array of all the list then rendering them out
-          success: (lists) => {
-            console.log(lists)
-            for(let list of lists){
-              renderTodos(list);
-            }
-          }
-        });
+      success: ((data) => {
+        $('#text').val('');
+        $(`#${data.category}-items`).append(createToDoItem(`${data.name}`));
       })
     });
   })
