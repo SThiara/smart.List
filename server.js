@@ -33,7 +33,7 @@ app.use(cookieSession({
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 
- const usersRoutes = require("./routes/user-routes");
+const usersRoutes = require("./routes/user-routes");
 const listsRoutes = require("./routes/list-routes");
 
 // Mount all resource routes
