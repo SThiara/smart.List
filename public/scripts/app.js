@@ -17,7 +17,7 @@ const renderTodos = (todos) => {
 
 $(() => {
   // clear textarea and get correct lists for user on reload
-  $('#text').val('');
+  $('#todo-text').val('');
   $.ajax({
     method:'GET',
     url: '/lists/',
@@ -35,7 +35,7 @@ $(() => {
       url:'/lists/',
       data: $(this).serialize(),
       success: ((data) => {
-        $('#text').val('');
+        $('#todo-text').val('');
         $(`#${data.category}-items`).append(createToDoItem(`${data.name}`));
       })
     });
