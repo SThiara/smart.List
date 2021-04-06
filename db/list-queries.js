@@ -10,8 +10,8 @@ const listByCategory = (category) => {
       return items;
     })
     .catch(err => {
-        .status(500)
-        .console.log({ error: err.message });
+      res.status(500);
+      console.log({ error: err.message });
     });
 };
 
