@@ -16,8 +16,8 @@ module.exports = () => {
     res.redirect('/');
   });
 
-  // GET /user:id
-  router.get("/:id", (req, res) => {
+  // GET /user/edit
+  router.get("/edit", (req, res) => {
     if (res.err){
       return res.redirect("/*");
     }
