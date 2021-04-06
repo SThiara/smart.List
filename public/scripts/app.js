@@ -30,7 +30,7 @@ $(() => {
 
   $('form').on("submit", function(event) {
     $('.error').hide()
-    const len = $("#todo-text").val().trim().length();
+    const len = $("#todo-text").val().trim().length;
     if (len){
       event.preventDefault();
       $.ajax({
