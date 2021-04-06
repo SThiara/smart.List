@@ -25,7 +25,7 @@
     </h3>
     </div>
     <div class="card-body d-flex  align-items-start">
-    <form method="POST" action="/user">
+    <form method="GET" action="/user/:id">
       <div class="form-group">
         <label for="exampleInputName">Current name: <%=user.name%></label>
         <input name="name"type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter your new name">
