@@ -14,12 +14,12 @@ module.exports = () => {
   // Get /lists/
   router.get("/", (req, res) => {
     let id = 2;
-    const categories=['eat','buy']; // ['eat', 'buy', 'read', 'watch']
+    const categories=['eat', 'buy', 'read', 'watch'];
     let categoriesPromise = [];
 
     // puts all the query calls by categories and resolve all the promises together
     for( let category of categories) {
-      categoriesPromise.push(listByCategory(category));
+      categoriesPromise.push(listByCategory(category, req.session.id));
     }
     Promise.all(categoriesPromise)
         .then(data => {
