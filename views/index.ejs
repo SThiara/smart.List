@@ -15,7 +15,6 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/testy.js"></script>
     <title>To Do - smart.List</title>
   </head>
   <body class="d-flex flex-column">
@@ -29,14 +28,14 @@
         </div>
         <div class="card-body">
           <form class="d-flex flex-column" method="POST" action="/lists/:id">
-            <textarea id="todo-text" class="form-control shadow border-0" placeholder="What's on your to do...?"></textarea>
+            <textarea id="text" name="text" class="form-control shadow border-0" placeholder="What's on your to do...?"></textarea>
             <button class="shadow-sm btn btn-success" type="submit">Submit</button>
           </form>
         </div>
       </section>
 
       <section class="container justify-content-center align-items-center">
-        <div class="row mx-md-n10">
+        <div class="d-flex justify-content-center mx-md-n10">
           <div class="col-5 px-md-5">
 
             <div class="card">
@@ -60,7 +59,6 @@
 
           </div>
           <div class="col-5 px-md-5">
-
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title"><i class="fas fa-book mr-2"></i>Read</h5>
@@ -81,7 +79,7 @@
             </div>
           </div>
         </div>
-        <div class="row  mx-md-n10">
+        <div class="d-flex justify-content-center  mx-md-n10">
           <div class="col-5 px-md-5">
 
             <div class="card">
