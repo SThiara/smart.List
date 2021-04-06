@@ -28,7 +28,7 @@
         </div>
         <div class="card-body">
           <form class="d-flex flex-column" method="POST" action="/lists/:id">
-            <textarea id="todo-text" class="form-control shadow border-0" placeholder="What's on your to do...?"></textarea>
+            <textarea id="text" name="text" class="form-control shadow border-0" placeholder="What's on your to do...?"></textarea>
             <button class="shadow-sm btn btn-success" type="submit">Submit</button>
           </form>
         </div>
@@ -59,7 +59,6 @@
 
           </div>
           <div class="col-5 px-md-5">
-
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title"><i class="fas fa-book mr-2"></i>Read</h5>

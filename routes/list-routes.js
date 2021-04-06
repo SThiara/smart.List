@@ -7,8 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
-const { listByCategory } = require('../db/list-queries');
-const db = require('../db/dbsetup');
+const { listByCategory, addItem } = require('../db/list-queries');
 
 module.exports = () => {
 
@@ -34,12 +33,18 @@ module.exports = () => {
   });
 
   // POST /lists/
-  router.post("/", (req,res) => {
-    let id = 2;
-    let query = `INSERT INTO list_items(name, user_id, category)
-    VALUES ($1, $2, $3)`
-    db.query(query, [req.body.text, id, 'eat'])
-    res.send(200);
+  router.post("/", (req, res) => {
+    let id = 2; // need t get id from cookies
+    let category = 'eat';
+    addItem(req.body.text, id, category)
+    .then((todoItem) => {
+      res.send(todoItem)
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
   });
   return router;
 };
