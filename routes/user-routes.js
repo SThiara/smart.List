@@ -16,7 +16,7 @@ module.exports = (db) => {
       }
       const user = {'name': req.body.name, 'email':req.body.email, 'password':req.body.password};
       let templateVars = {user}
-      res.render(user_profile.ejs, templateVars);
+      res.render('user_profile', templateVars);
     });
 
 
