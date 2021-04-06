@@ -15,52 +15,37 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/testjquery.js"></script>
     <title>To Do - smart.List</title>
   </head>
   <body class="d-flex flex-column">
     <%- include("./partials/_header"); %>
-    <main class="d-flex flex-column mx-5 my-2">
+    <main class="d-flex flex-column align-items-center justify-content-center">
+        <div class="col align-items-center justify-content-center mt-5">
+          <h1 class="row align-items-center justify-content-center">Remember what you love!</h1>
+        </div>
+
+        <section class="new-todo container row pt-2 mx-md-n10 align-items-center justify-content-center">
+          <div class="col-10 px-5">
+            <div class="row card-body">
+              <form method="POST" action="/lists/:id">
+                <div id="user-list" class="row pt-3">
+                </div>
+                <textarea id="todo-text" class="form-control shadow border-0" placeholder="Add an item"></textarea>
+                <button class="btn btn-success form-control" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </section>
 
       <section class="new-todo container row pt-2 mx-md-n10 align-items-center justify-content-center">
-        <div class="col-10 px-5">
-          <div class="row card-body">
-            <form method="POST" action="/lists/:id">
-              <div id="user-list" class="row pt-3">
-              </div>
-              <textarea id="todo-text" class="form-control shadow border-0" placeholder="Enter an item"></textarea>
-              <button class="btn btn-success form-control" type="submit">Submit</button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <aside class="new-todo container row pt-2 mx-md-n10 align-items-center justify-content-center">
        <p class="col-9">You know how people are always recomending things to you, but you never actually get around to checking them out? smart.List takes those recs and automatically sorts them into books to read, movies or shows to watch, stuff to buy or places to eat.
         Your custom lists will make sure you know exactly where you want to go for lunch next, or what to check out next time you open up Netflix.
        </p>
-      </aside>
+      </section>
 
-
-
-
-      <!-- <section class="new-todo container">
-        <div id="user-list" class="row py-3">
-        </div>
-        <div class="row card-body">
-          <form class="d-flex flex-column" method="POST" action="/lists/:id">
-            <textarea id="text" name="text" class="form-control shadow border-0" placeholder="What's on your to do...?"></textarea>
-            <button class="shadow-sm btn btn-success" type="submit">Submit</button>
-          </form>
-        </div>
-      </section> -->
-
-<<<<<<< HEAD
-      <section class="container justify-content-center align-items-center">
-        <div class="d-flex justify-content-center mx-md-n10">
-=======
       <section class="container d-flex flex-column justify-content-space-around align-items-space-around">
         <div class="row py-5 mx-md-n10 justify-content-center">
->>>>>>> c340bf86b16650bcbb82efd9a717afceef44bea3
           <div class="col-5 px-md-5">
 
             <div class="card">
@@ -84,6 +69,7 @@
 
           </div>
           <div class="col-5 px-md-5">
+
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title"><i class="fas fa-book mr-2"></i>Read</h5>
@@ -104,12 +90,8 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-        <div class="d-flex justify-content-center  mx-md-n10">
-=======
         <div class="row py-0.5 mx-md-n10 justify-content-center">
->>>>>>> c340bf86b16650bcbb82efd9a717afceef44bea3
-          <div class="col-5 px-md-5">
+          <div class="col-5 pb-5 px-md-5">
 
             <div class="card">
               <div class="card-body">
@@ -131,7 +113,7 @@
             </div>
 
           </div>
-          <div class="col-5 px-md-5">
+          <div class="col-5 pb-5 px-md-5">
 
             <div class="card">
               <div class="card-body">
@@ -165,3 +147,4 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
