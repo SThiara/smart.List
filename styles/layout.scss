@@ -40,6 +40,13 @@ body{
     text-align: center;
     }
   }
+  .card {
+    opacity: 0.7;
+  }
+  .card:hover {
+    opacity: 1;
+    box-shadow: 0.5em 0.5em grey;
+  }
 
   ul.list-group.col{
     padding-right:0;
