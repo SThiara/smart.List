@@ -10,7 +10,6 @@ const listByCategory = (category) => {
       return items;
     })
     .catch(err => {
-      res.status(500);
       console.log({ error: err.message });
     });
 };
