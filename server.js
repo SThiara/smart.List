@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cookieSession = require('cookie-session');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -24,22 +25,21 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2', 'key3']
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const watchRoutes = require("./routes/watch");
-const eatRoutes = require("./routes/eat");
-const buyRoutes = require("./routes/buy");
-const readRoutes = require("./routes/read");
+
+const usersRoutes = require("./routes/user-routes");
+const listsRoutes = require("./routes/list-routes");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-// app.use("/api/users", usersRoutes);
-app.use("/watch", watchRoutes);
-app.use("/eat", eatRoutes);
-app.use("/buy", buyRoutes);
-app.use("/read", readRoutes);
+app.use("/user", usersRoutes());
+app.use("/lists", listsRoutes());
 
 // Note: mount other resources here, using the same pattern above
 
