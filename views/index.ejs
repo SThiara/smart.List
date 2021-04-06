@@ -20,22 +20,47 @@
   <body class="d-flex flex-column">
     <%- include("./partials/_header"); %>
     <main class="d-flex flex-column mx-5 my-2">
-      <section class="new-todo">
-        <div class="shadow-sm card-header mt-2">
-          <h3 >
-            My To-Do Lists
-          </h3>
+
+      <section class="new-todo container row pt-2 mx-md-n10 align-items-center justify-content-center">
+        <div class="col-10 px-5">
+          <div class="row card-body">
+            <form method="POST" action="/lists/:id">
+              <div id="user-list" class="row pt-3">
+              </div>
+              <textarea id="todo-text" class="form-control shadow border-0" placeholder="Enter an item"></textarea>
+              <button class="btn btn-success form-control" type="submit">Submit</button>
+            </form>
+          </div>
         </div>
-        <div class="card-body">
+      </section>
+
+      <aside class="new-todo container row pt-2 mx-md-n10 align-items-center justify-content-center">
+       <p class="col-9">You know how people are always recomending things to you, but you never actually get around to checking them out? smart.List takes those recs and automatically sorts them into books to read, movies or shows to watch, stuff to buy or places to eat.
+        Your custom lists will make sure you know exactly where you want to go for lunch next, or what to check out next time you open up Netflix.
+       </p>
+      </aside>
+
+
+
+
+      <!-- <section class="new-todo container">
+        <div id="user-list" class="row py-3">
+        </div>
+        <div class="row card-body">
           <form class="d-flex flex-column" method="POST" action="/lists/:id">
             <textarea id="text" name="text" class="form-control shadow border-0" placeholder="What's on your to do...?"></textarea>
             <button class="shadow-sm btn btn-success" type="submit">Submit</button>
           </form>
         </div>
-      </section>
+      </section> -->
 
+<<<<<<< HEAD
       <section class="container justify-content-center align-items-center">
         <div class="d-flex justify-content-center mx-md-n10">
+=======
+      <section class="container d-flex flex-column justify-content-space-around align-items-space-around">
+        <div class="row py-5 mx-md-n10 justify-content-center">
+>>>>>>> c340bf86b16650bcbb82efd9a717afceef44bea3
           <div class="col-5 px-md-5">
 
             <div class="card">
@@ -79,7 +104,11 @@
             </div>
           </div>
         </div>
+<<<<<<< HEAD
         <div class="d-flex justify-content-center  mx-md-n10">
+=======
+        <div class="row py-0.5 mx-md-n10 justify-content-center">
+>>>>>>> c340bf86b16650bcbb82efd9a717afceef44bea3
           <div class="col-5 px-md-5">
 
             <div class="card">
