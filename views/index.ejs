@@ -25,12 +25,13 @@
         </div>
 
         <section class="new-todo container row pt-2 mx-md-n10 align-items-center justify-content-center">
+          <p class="error"></p>
           <div class="col-10 px-5">
             <div class="row card-body">
               <form method="POST" action="/lists/:id">
                 <div id="user-list" class="row pt-3">
                 </div>
-                <textarea name="text" id="todo-text" class="form-control shadow border-0" placeholder="Add an item"></textarea>
+                <textarea name="text" id="todo-text" class="form-control shadow border-0" maxlength = "160" placeholder="Add an item"></textarea>
                 <button class="btn btn-secondary form-control" type="submit"><i class="fas fa-plus"></i></button>
               </form>
             </div>
