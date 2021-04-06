@@ -4,9 +4,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Roboto:wght@100&display=swap');
 // Variables
 $font-stack: "Barlow", cursive, "Roboto";
-$font-colour: #6E6E6E;
+$font-colour:  #504f54;
 $background: #FFFFFF;
-$nav-background: #FFA834;
+$nav-background: #effaf6;
 
 // Styles
 body{
@@ -21,15 +21,6 @@ body{
     font-size: 30px;
   }
 
-  .backround {
-  background-color: #008c41;
-  background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
-  }
-
-  .user{
-    color:#ffffff;
-    font-family: "Roboto";
-    }
   .bootstrap-cyan-button-normal-2 {
     width: 70px;
     height: 32px;
@@ -50,7 +41,15 @@ body{
   }
   .card:hover {
     opacity: 1;
-    box-shadow: 0.5em 0.5em grey;
+    box-shadow: 0.7em 0.7em  #effaf6;
+  }
+
+  .new-todo p {
+    opacity: 0.8;
+  }
+
+  .new-todo p:hover {
+    opacity: 1;
   }
 
   .card-body {
