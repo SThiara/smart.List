@@ -4,6 +4,9 @@
     <!-- Disabling viewport -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a88a03717f.js" crossorigin="anonymous"></script>
+
      <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -12,6 +15,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/testy.js"></script>
     <title>To Do - smart.List</title>
   </head>
   <body class="d-flex flex-column">
@@ -19,44 +23,117 @@
     <main class="d-flex flex-column mx-5 my-2">
       <section class="new-todo">
         <div class="shadow-sm card-header mt-2">
-        <h3 >
-          My To-Do Lists
-        </h3>
-      </div>
-      <div class="card-body">
-      <form class="d-flex flex-column" method="POST" action="/lists/:id">
-        <textarea id="todo-text" class="form-control shadow border-0" placeholder="What's on your to do...?"></textarea>
-        <button class="shadow-sm btn btn-success" type="submit">Submit</button>
-      </form>
-    </div>
+          <h3 >
+            My To-Do Lists
+          </h3>
+        </div>
+        <div class="card-body">
+          <form class="d-flex flex-column" method="POST" action="/lists/:id">
+            <textarea id="todo-text" class="form-control shadow border-0" placeholder="What's on your to do...?"></textarea>
+            <button class="shadow-sm btn btn-success" type="submit">Submit</button>
+          </form>
+        </div>
       </section>
-      <section class="d-flex flex-row justify-content-between my-2 mx-0" id="list-container">
-        <ul class="list-group col shadow">
-          <li class="list-group-item"> Food List</li>
-          <ul class="list-group-item">
-            <li> Food 2</li>
-            <li> Food 2</li>
-          </ul>
-        </ul>
-        <ul class="list-group col shadow">
-          <li class="list-group-item"> Watch List</li>
-          <ul class="list-group-item">
-            <li> Food 2</li>
-            <li> Food 2</li>
-          </ul>
-        </ul>
 
-        <ul class="list-group col shadow">
-          <li class="list-group-item"> Watch List</li>
-          <ul class="list-group-item">
-            <li> Food 2</li>
-            <li> Food 2</li>
-          </ul>
-        </ul>
-    </section>
+      <section class="container justify-content-center align-items-center">
+        <div class="row mx-md-n10">
+          <div class="col-5 px-md-5">
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-video mr-2"></i></i>Watch</h5>
+                <table class="table">
+                  <tbody id="watch-items">
+                    <tr>
+                      <th scope="row">item 1</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">item 2</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">item 3</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-5 px-md-5">
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-book mr-2"></i>Read</h5>
+                <table class="table">
+                  <tbody id="read-items">
+                    <tr>
+                      <th scope="row">item 1</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">item 2</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">item 3</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row  mx-md-n10">
+          <div class="col-5 px-md-5">
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-shopping-cart mr-2"></i></i>Buy</h5>
+                <table class="table">
+                  <tbody id="buy-items">
+                    <tr>
+                      <th scope="row">item 1</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">item 2</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">item 3</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-5 px-md-5">
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-utensils mr-2"></i></i>Eat</h5>
+                <table class="table">
+                  <tbody id="eat-items">
+                    <tr>
+                      <th scope="row">item 1</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">item 2</th>
+                    </tr>
+                    <tr>
+                      <th scope="row">item 3</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+
+
     </main>
     <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
