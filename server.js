@@ -51,10 +51,6 @@ app.get("/", (req, res) => {
   let templateVars ={};
   findUser(req.session.id)
   .then(user => {
-    // let user = {
-    //   name: res.name,
-    //   email: res.email
-    // }
     templateVars = {user};
     res.render("index", templateVars)
   })

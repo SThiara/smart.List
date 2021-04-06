@@ -2,7 +2,6 @@ const db = require('./dbsetup');
 
 
 const findUser = (id) => {
-  // id = 1;
   return db.query(`
   SELECT name, email
   FROM users
