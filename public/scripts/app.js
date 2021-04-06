@@ -9,9 +9,11 @@ const createToDoItem = (todo) => {
 };
 
 const renderTodos = (todos) => {
-  console.log('todos: ', todos);
+  for(let todo of todos){
+    console.log('todo', todo);
+    // $(`#${todo.category}`).append(createToDoItem(todo.name));
+  }
 };
-
 
 $(() => {
   $('form').on("submit", function(event){
@@ -19,19 +21,21 @@ $(() => {
     $.ajax({
       method:"POST",
       url:"/lists/",
-      success: () => {
+      data: $(this).serialize(),
+      success: (() => {
         console.log('posting into db success')
         $.ajax({
           method:"GET",
           url:"/lists/",
           // getting an array of all the list then rendering them out
           success: (lists) => {
+            console.log(lists)
             for(let list of lists){
-              console.log(list)
+              renderTodos(list);
             }
           }
         });
-      }
+      })
     });
   })
 });
