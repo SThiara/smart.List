@@ -29,15 +29,21 @@ $(() => {
   });
 
   $('form').on("submit", function(event) {
-    event.preventDefault();
-    $.ajax({
-      method:'POST',
-      url:'/lists/',
-      data: $(this).serialize(),
-      success: ((data) => {
-        $('#todo-text').val('');
-        $(`#${data.category}-items`).append(createToDoItem(`${data.name}`));
-      })
-    });
+    $('.error').hide()
+    const len = $("#todo-text").trim().length();
+    if (len){
+      event.preventDefault();
+      $.ajax({
+        method:'POST',
+        url:'/lists/',
+        data: $(this).serialize(),
+        success: ((data) => {
+          $('#todo-text').val('');
+          $(`#${data.category}-items`).append(createToDoItem(`${data.name}`));
+        })
+      });
+    } else {
+      $(".error").text('Empty text means you got nothing to do....').slideDown(300);
+    }
   })
 });
