@@ -7,32 +7,31 @@
 
 const express = require('express');
 const router  = express.Router();
+const {findUser} = require('../db/user-queries')
 
-module.exports = (db) => {
-    // GET /user:id
-    router.get("/:id", (req,res) => {
-      if (res.err){
-        return res.redirect("/*");
-      }
-      const user = {'name': req.body.name, 'email':req.body.email, 'password':req.body.password};
-      let templateVars = {user}
-      res.render(user_profile.ejs, templateVars);
-    });
-
-
-  router.get("/:id", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then(data => {
-        const users = data.rows;
-        res.json({ users });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+module.exports = () => {
+  router.get('/login/:id', (req, res) => {
+    // if using cookie-session middleware
+    req.session.id = req.params.id;
+    res.redirect('/');
   });
 
+  // GET /user:id
+  router.get("/:id", (req, res) => {
+    if (res.err){
+      return res.redirect("/*");
+    }
+    findUser(req.session.id)
+    .then( user => {
+      const templateVars = {user}
+      res.render("user_profile", templateVars);
+    });
+  });
+
+  router.post('/logout', (req, res) => {
+    req.session = null;
+    res.redirect('/');
+  })
 
   // GET /user/*
   router.get("/*", (req, res) => {
