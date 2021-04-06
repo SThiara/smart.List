@@ -15,6 +15,21 @@ const findUser = (id) => {
   })
 };
 
+const updateUserEmail = (email, user_id) => {
+  return db.query(`
+  UPDATE users
+  SET email = $1
+  WHERE id = $2
+  RETURNING *`, [email, user_id])
+  .then((user) => {
+    if (user){
+      return user.rows[0];
+    }
+    return null;
+  })
+};
+
 module.exports = {
-  findUser
+  findUser,
+  updateUserEmail
 };
