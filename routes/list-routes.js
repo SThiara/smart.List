@@ -8,6 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 const { listByCategory } = require('../db/list-queries');
+const db = require('../db/dbsetup');
 
 module.exports = () => {
 
@@ -37,7 +38,7 @@ module.exports = () => {
     let id = 2;
     let query = `INSERT INTO list_items(name, user_id, category)
     VALUES ($1, $2, $3)`
-    db.query(query, ['Leftovers', id, 'eat'])
+    db.query(query, [req.body.text, id, 'eat'])
     res.send(200);
   });
   return router;
