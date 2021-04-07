@@ -58,7 +58,7 @@ module.exports = () => {
   router.post("/move", (req, res) => {
     changeCategory( req.body.category, req.body.id)
     .then((data) =>{
-      res.send(data)
+      res.send(200);
     });
     })
   /* router.post("/", (req, res) => {
