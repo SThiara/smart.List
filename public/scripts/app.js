@@ -46,4 +46,14 @@ $(() => {
       $(".error").text('Empty text means you got nothing to do....').slideDown(300);
     }
   })
+
+  $('.login').on('submit', function(event) {
+    event.preventDefault();
+    const max = 5;
+    const id = Math.floor(Math.random() * (max - 1) + 1)
+    $.ajax({
+      method:'POST',
+      url:`/user/login/${id}`
+    });
+  })
 });
