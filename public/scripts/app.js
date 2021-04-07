@@ -81,4 +81,18 @@ $(() => {
     connectWith: ".connectedLists"
   }).disableSelection();
 
+  //drag n drop functionality
+  $(".todo-item").on('drag', function(event) {
+    const id = $(this).attr('id');
+    $("div.card").on('drop', function (event) {
+      const category = $(this).attr('id').split('-')[0];
+      $.ajax({
+        url:'/lists/move',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({"id": id, "category": category})
+      })
+    });
+  })
+
 });
