@@ -54,7 +54,7 @@ $(() => {
     const max = 5;
     const id = Math.floor(Math.random() * (max - 1) + 1)
     $.ajax({
-      method:'POST',
+      method:'GET',
       url:`/user/login/${id}`
     });
   })

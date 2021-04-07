@@ -10,6 +10,11 @@ const router  = express.Router();
 const {findUser, updateUserProfile} = require('../db/user-queries')
 
 module.exports = () => {
+  router.get('/login/:id',(req, res) => {
+    req.session.id = req.params.id;
+    res.redirect('/');
+  });
+
   // GET /user/edit
   router.get("/edit", (req, res) => {
     if (res.err){
