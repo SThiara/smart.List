@@ -10,7 +10,7 @@ const createToDoItem = (todo) => {
 
 const renderTodos = (todos) => {
   for(let todo of todos){
-    // console.log('todo', todo);
+    console.log('todo', todo);
     $(`#${todo.category}-items`).append(createToDoItem(todo.name));
   }
 };
