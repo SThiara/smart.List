@@ -39,7 +39,6 @@ const changeCategory = (category, id) => {
   .then((item) => {
     return item.rows[0];
   })
-
 };
 
 module.exports = {
