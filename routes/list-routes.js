@@ -35,16 +35,20 @@ module.exports = () => {
   // POST /lists/
   router.post("/", (req, res) => {
     let id = req.session.id;
-    let category = 'eat';
-    addItem(req.body.text, id, category)
-    .then((todoItem) => {
-      res.send(todoItem)
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+    if (id){
+      let category = 'eat';
+      addItem(req.body.text, id, category)
+      .then((todoItem) => {
+        res.send(todoItem)
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+        });
+    } else{
+      res.sendStatus(403);
+    }
   });
   return router;
 };
