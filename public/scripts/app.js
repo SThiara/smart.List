@@ -5,7 +5,7 @@ const escape =  function(str) {
 };
 
 const createToDoItem = (todo) => {
-  return `<tr><th>${escape(todo)}</th></tr>`;
+  return `<tr class='todo-item'><th>${escape(todo)}</th></tr>`;
 };
 
 const renderTodos = (todos) => {
@@ -57,5 +57,10 @@ $(() => {
       method:'GET',
       url:`/user/login/${id}`
     });
-  })
+  });
+  // making the lists move
+  $( "#watch-items, #buy-items, #read-items, #eat-items" ).sortable({
+    connectWith: ".connectedLists"
+  }).disableSelection();
+
 });
