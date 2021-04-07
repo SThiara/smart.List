@@ -10,13 +10,6 @@ const router  = express.Router();
 const {findUser, updateUserProfile} = require('../db/user-queries')
 
 module.exports = () => {
-  router.get('/login/:id', (req, res) => {
-    // if using cookie-session middleware
-    req.session.id = req.params.id;
-    console.log(req.params);
-    res.redirect('/');
-  });
-
   // GET /user/edit
   router.get("/edit", (req, res) => {
     if (res.err){
@@ -39,9 +32,11 @@ module.exports = () => {
     res.status(404).send('Error 404: Page not found!')
   });
 
-  router.post('/login',(req, res) => {
-    res.redirect("/lists/")
+  router.post('/login/:id',(req, res) => {
+    req.session.id = req.params.id;
+    res.redirect('/');
   });
+
   //POST user/:id
   router.post('/:id',(req, res) => {
     const userObj = req.body;
