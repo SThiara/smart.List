@@ -42,7 +42,7 @@ module.exports = () => {
   router.post('/login',(req, res) => {
     res.redirect("/lists/")
   });
-
+  //POST user/:id
   router.post('/:id',(req, res) => {
     const userObj = req.body;
     userObj['id'] = req.session.id;
