@@ -1,10 +1,10 @@
 const db = require('./dbsetup');
 
 const listByCategory = (category, id) => {
-  let query = `SELECT name, category, id FROM list_items
+  let query = `SELECT name, category FROM list_items
     WHERE category = $1
     AND user_id = $2
-    ORDER BY id`;
+    ORDER BY name`;
   return db.query(query, [category, id])
     .then(data => {
       const items = data.rows;
@@ -14,17 +14,6 @@ const listByCategory = (category, id) => {
       console.log({ error: err.message });
     });
 };
-
-const changeCategory = (id, category) => {
-  return db.query(`
-  UPDATE list_items
-  SET category = $1
-  WHERE id = $2
-  RETURNING *`, [category, id])
-  .then(updated => {
-    return updated;
-  });
-}
 
 const addItem = (name, userId, category) => {
   return db.query(`
@@ -38,6 +27,19 @@ const addItem = (name, userId, category) => {
       const items = res.rows[0];
       return items;
     });
+};
+
+const changeCategory = (category, id) => {
+  return db.query(`
+  UPDATE list_items
+  SET category = $1
+  WHERE id = $2
+  RETURNING *
+  `, [category, id])
+  .then((item) => {
+    return item.rows[0];
+  })
+
 };
 
 module.exports = {
