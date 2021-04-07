@@ -28,7 +28,7 @@ $(() => {
     }
   });
 
-  $('form').on("submit", function(event) {
+  $('#add-item').on("submit", function(event) {
     event.preventDefault();
     $('.error').hide()
     const len = $("#todo-text").val().trim().length;
