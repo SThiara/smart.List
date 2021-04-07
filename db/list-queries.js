@@ -29,7 +29,20 @@ const addItem = (name, userId, category) => {
     });
 };
 
+const changeCategory = (category, id) => {
+  return db.query(`
+  UPDATE list_items
+  SET category = $1
+  WHERE id = $2
+  RETURNING *
+  `, [category, id])
+  .then((item) => {
+    return item.rows[0];
+  })
+};
+
 module.exports = {
   listByCategory,
-  addItem
+  addItem,
+  changeCategory
 };
