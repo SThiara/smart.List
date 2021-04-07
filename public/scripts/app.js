@@ -41,6 +41,8 @@ $(() => {
           $('#todo-text').val('');
           $(`#${data.category}-items`).append(createToDoItem(`${data.name}`));
         })
+      }).fail(() => {
+        $('.error').text('Please log in before adding an item').slideDown(300);
       });
     } else {
       $(".error").text('Empty text means you got nothing to do....').slideDown(300);
