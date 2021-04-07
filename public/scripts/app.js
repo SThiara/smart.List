@@ -78,12 +78,20 @@ $(() => {
   $("#watch-items, #buy-items, #read-items, #eat-items" ).sortable({
   //solution for dragging to empty table adapted from https://stackoverflow.com/questions/3751436/jquery-ui-sortable-unable-to-drop-tr-in-empty-tbody
     // cancel: ">*:not(.sort-disabled)",
-    cancel: ".sort-disabled",
+    // cancel: ".sort-disabled",
     connectWith: ".connectedLists",
-    update: (event, ui) => {
-      let data =$('#watch-items.todo-item').sortable('serialize');
-      // let data = $(this).sortable('serialize');
-      console.log(data);
+    receive: (event, ui) => {
+      // update only when an item is dropped (recevied) into a different list,
+      const id = ui.item.attr('id').split('_')[1];
+      const category = ui.item.parent().attr('id').split('-')[0];
+      $.ajax({
+        method: 'POST',
+        url: '/lists/move',
+        data: {id, category},
+        success: (data) => {
+          console.log(data);
+        }
+      });
     }
   }).disableSelection();
 });

@@ -7,7 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
-const { listByCategory, addItem } = require('../db/list-queries');
+const { listByCategory, addItem, changeCategory } = require('../db/list-queries');
 const { makeAPICalls } = require('../lib/makeAPICalls');
 
 module.exports = () => {
@@ -57,9 +57,9 @@ module.exports = () => {
   // POST /lists/move
   router.post("/move", (req, res) => {
     changeCategory( req.body.category, req.body.id)
-    .then(
-      res.send(200)
-      );
+    .then((data) =>{
+      res.send(data)
+    });
     })
   /* router.post("/", (req, res) => {
     let id = req.session.id;
