@@ -42,6 +42,10 @@ body{
     width: 8rm;
   }
 
+  .sort-disabled {
+  visibility: hidden;
+  }
+
   ul.list-group.col{
     padding-right:0;
     margin:1rem;
