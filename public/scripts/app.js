@@ -40,9 +40,22 @@ $(() => {
         method:'POST',
         url:'/lists/',
         data: $(this).serialize(),
-        success: ((data) => {
+        success: (() => {
           $('#todo-text').val('');
-          $(`#${data.category}-items`).append(createToDoItem(`${data.name}`));
+          //$(`#${data.category}-items`).append(createToDoItem(`${data.name}`));
+          $.ajax({
+            method:'GET',
+            url: '/lists/',
+            success: (lists) => {
+              $("#buy-items").empty();
+              $("#eat-items").empty();
+              $("#read-items").empty();
+              $("#watch-items").empty();
+              for (let list of lists){
+                renderTodos(list);
+              }
+            }
+          })
         })
       }).fail(() => {
         $('.error').text('Please log in before adding an item').slideDown(300);
