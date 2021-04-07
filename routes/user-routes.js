@@ -13,6 +13,7 @@ module.exports = () => {
   router.get('/login/:id', (req, res) => {
     // if using cookie-session middleware
     req.session.id = req.params.id;
+    console.log(req.params);
     res.redirect('/');
   });
 
@@ -44,7 +45,7 @@ module.exports = () => {
 
   router.post('/:id',(req, res) => {
     const userObj = req.body;
-    userObj['id'] = 2;
+    userObj['id'] = req.session.id;
     updateUserProfile(userObj);
     res.redirect("/");
   });

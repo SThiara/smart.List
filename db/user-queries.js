@@ -41,7 +41,6 @@ const updateUserProfile = (userObject) => {
   vars.push(userObject.id);
   query += `WHERE id = $${vars.length}
   RETURNING *`
-  console.log(query);
   return db.query(query, vars)
   .then((user) => {
     if (user){
