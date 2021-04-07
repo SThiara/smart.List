@@ -21,9 +21,9 @@
     <%- include("./partials/_header"); %>
     <main class="d-flex flex-column align-items-center justify-content-center">
         <div class="col align-items-center justify-content-center mt-5">
-          <h1 class="row align-items-center justify-content-center">Remember what you love!</h1>
+          <h1 class="display-6 row align-items-center justify-content-center">Remember what you love!</h1>
         </div>
-
+      <% if (user)  { %>
         <section class="new-todo container row pt-2 mx-md-n10 align-items-center justify-content-center">
           <div class="col-10 px-5">
             <p class="error text-center text-danger"></p>
@@ -37,73 +37,79 @@
             </div>
           </div>
         </section>
+      <% } %>
+      <% if (!user)  { %>
+        <section class=" my-5 new-todo container text-monospace row pt-2 mx-md-n10 align-items-center justify-content-center">
+        <p class="col-9">People are always <mark>recommending</mark> things to you, but you never actually get around to checking them out. <br><br>
+          <mark>smart.List</mark> takes those recs and automatically sorts them into books to read, movies or shows to watch, stuff to buy or places to eat.<br><br>
+          Your custom lists will make sure you know <mark>exactly</mark> where you want to go for lunch next, or what to check out next time you open up Netflix.
+        </p>
+        <i class="mt-4 mb-3 far fa-check-square fa-10x d-flex align-items-center justify-content-center"></i>
+        <form class='my-5 login d-flex align-items-center justify-content-center'>
+          <button type='submit' class="btn btn-outline-primary mr-2">Login to create your own lists!</button>
+        </form>
+        </section>
+      <% } %>
+      <% if (user)  { %>
+        <section class="container d-flex flex-column justify-content-space-around align-items-space-around">
+          <div class="row py-5 mx-md-n10 justify-content-center align-items-stretch">
+            <div class="col-5 px-md-5">
 
-      <section class="new-todo container row pt-2 mx-md-n10 align-items-center justify-content-center">
-       <p class="col-9">People are always recommending things to you, but you never actually get around to checking them out. smart.List takes those recs and automatically sorts them into books to read, movies or shows to watch, stuff to buy or places to eat.
-        Your custom lists will make sure you know exactly where you want to go for lunch next, or what to check out next time you open up Netflix.
-       </p>
-      </section>
-
-      <section class="container d-flex flex-column justify-content-space-around align-items-space-around">
-        <div class="row py-5 mx-md-n10 justify-content-center align-items-stretch">
-          <div class="col-5 px-md-5">
-
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-video mr-2"></i></i>Watch</h5>
-                <table class="table">
-                  <tbody id="watch-items">
-                  </tbody>
-                </table>
+              <div class="card watch">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-video mr-2"></i></i>Watch</h5>
+                  <table class="table">
+                    <tbody id="watch-items">
+                    </tbody>
+                  </table>
+                </div>
               </div>
+
             </div>
+            <div class="col-5 px-md-5">
 
-          </div>
-          <div class="col-5 px-md-5">
-
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-book mr-2"></i>Read</h5>
-                <table class="table">
-                  <tbody id="read-items">
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row py-0.5 mx-md-n10 justify-content-center align-items-stretch">
-          <div class="col-5 pb-5 px-md-5">
-
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-shopping-cart mr-2"></i></i>Buy</h5>
-                <table class="table">
-                  <tbody id="buy-items">
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-5 pb-5 px-md-5">
-
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-utensils mr-2"></i></i>Eat</h5>
-                <table class="table">
-                  <tbody id="eat-items">
-                  </tbody>
-                </table>
+              <div class="card read">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-book mr-2"></i>Read</h5>
+                  <table class="table">
+                    <tbody id="read-items">
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
+          <div class="row py-0.5 mx-md-n10 justify-content-center align-items-stretch">
+            <div class="col-5 pb-5 px-md-5">
+
+              <div class="card buy">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-shopping-cart mr-2"></i></i>Buy</h5>
+                  <table class="table">
+                    <tbody id="buy-items">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-5 pb-5 px-md-5">
+
+              <div class="card eat">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-utensils mr-2"></i></i>Eat</h5>
+                  <table class="table">
+                    <tbody id="eat-items">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
 
 
-        </div>
-      </section>
-
-
+          </div>
+        </section>
+      <% } %>
 
     </main>
     <!-- Bootstrap JS -->
