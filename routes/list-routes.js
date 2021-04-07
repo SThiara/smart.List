@@ -8,6 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 const { listByCategory, addItem } = require('../db/list-queries');
+const { makeAPICalls } = require('../lib/makeAPICalls');
 
 module.exports = () => {
 
@@ -36,8 +37,10 @@ module.exports = () => {
   router.post("/", (req, res) => {
     let id = req.session.id;
     if (id){
-      let category = 'eat';
-      addItem(req.body.text, id, category)
+      makeAPICalls(req.body.text)
+      .then((category) => {
+        addItem(req.body.text, id, category)
+      })
       .then((todoItem) => {
         res.send(todoItem)
       })
@@ -50,5 +53,32 @@ module.exports = () => {
       res.sendStatus(403);
     }
   });
+
+
+  /* router.post("/", (req, res) => {
+    let id = req.session.id;
+
+    async function main() {
+      await makeAPICalls(req.body.text)
+      .then((category) => {
+        addItem(req.body.text, id, category)
+      })
+      .then((todoItem) => {
+        res.send(todoItem)
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+        });
+    }
+
+    if (id){
+      main();
+    } else{
+      res.sendStatus(403);
+    }
+  }); */
+
   return router;
 };
