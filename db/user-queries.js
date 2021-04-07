@@ -15,12 +15,32 @@ const findUser = (id) => {
   })
 };
 
-const updateUserEmail = (email, user_id) => {
-  return db.query(`
-  UPDATE users
-  SET email = $1
-  WHERE id = $2
-  RETURNING *`, [email, user_id])
+//updates user email, password and name in the database
+const updateUserProfile = (userObject) => {
+  const vars = [];
+  let query = `UPDATE users SET `
+  if (userObject.email) {
+    vars.push(userObject.email);
+    query += `email = $${vars.length}\n`;
+  }
+  if (userObject.name) {
+    vars.push(userObject.name);
+    query += `name = $${vars.length}\n`;
+  }
+  if (userObject.password) {
+    vars.push(userObject.password);
+    query += `password = $${vars.length}\n`;
+  }
+  if (!vars.length) {
+    return;
+  }
+  vars.push(userObject.id);
+  const queryPartial = query.split('');
+  query = queryPartial.join(', ');
+  query += `WHERE id = $${vars.length}
+  RETURNING *`
+  console.log(query);
+  return db.query(query, vars)
   .then((user) => {
     if (user){
       return user.rows[0];
@@ -31,5 +51,5 @@ const updateUserEmail = (email, user_id) => {
 
 module.exports = {
   findUser,
-  updateUserEmail
+  updateUserProfile
 };

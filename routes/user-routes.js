@@ -7,7 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
-const {findUser} = require('../db/user-queries')
+const {findUser, updateUserProfile} = require('../db/user-queries')
 
 module.exports = () => {
   router.get('/login/:id', (req, res) => {
@@ -43,7 +43,10 @@ module.exports = () => {
   });
 
   router.post('/:id',(req, res) => {
-    console(req.params);
+    const userObj = req.body;
+    userObj['id'] = 2;
+    updateUserProfile(userObj);
+    res.redirect("/");
   });
 
 
