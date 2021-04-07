@@ -21,20 +21,6 @@ body{
     font-size: 30px;
   }
 
-  .bootstrap-cyan-button-normal-2 {
-    width: 70px;
-    height: 32px;
-    padding: 0px 10px 0px 10px;
-    background: #5bc0de;
-    color: #ffffff;
-    border-color: #46b8da;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 3px 3px 3px 3px;
-    font-weight: 400;
-    font-size: 14px;
-    text-align: center;
-    }
   }
   .card {
     opacity: 0.7;
@@ -54,6 +40,10 @@ body{
 
   .card-body {
     width: 8rm;
+  }
+
+  .sort-disabled {
+  visibility: hidden;
   }
 
   ul.list-group.col{

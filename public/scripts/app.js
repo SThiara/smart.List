@@ -5,7 +5,7 @@ const escape =  function(str) {
 };
 
 const createToDoItem = (todo) => {
-  return `<tr><th>${escape(todo)}</th></tr>`;
+  return `<tr class='todo-item'><th>${escape(todo)}</th></tr>`;
 };
 
 const renderTodos = (todos) => {
@@ -13,6 +13,9 @@ const renderTodos = (todos) => {
     console.log('todo', todo);
     $(`#${todo.category}-items`).append(createToDoItem(todo.name));
   }
+  //adds empty table row to the end of each item, made invisible with css
+  $(`#${todos[0].category}-items`).append(`<tr class='todo-item sort-disabled'><th></th></tr>`);
+
 };
 
 $(() => {
@@ -67,8 +70,15 @@ $(() => {
     const max = 5;
     const id = Math.floor(Math.random() * (max - 1) + 1)
     $.ajax({
-      method:'POST',
+      method:'GET',
       url:`/user/login/${id}`
     });
-  })
+  });
+  // making the lists move
+  $( "#watch-items, #buy-items, #read-items, #eat-items" ).sortable({
+  //solution for dragging to empty table adapted from https://stackoverflow.com/questions/3751436/jquery-ui-sortable-unable-to-drop-tr-in-empty-tbody
+    items: ">*:not(.sort-disabled)",
+    connectWith: ".connectedLists"
+  }).disableSelection();
+
 });
