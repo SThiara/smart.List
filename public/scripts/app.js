@@ -10,9 +10,11 @@ const createToDoItem = (todo) => {
 
 const renderTodos = (todos) => {
   for(let todo of todos){
-    // console.log('todo', todo);
+    console.log('todo', todo);
     $(`#${todo.category}-items`).append(createToDoItem(todo.name));
   }
+  $(`#${todos[0].category}-items`).append(`<tr class='todo-item'><th><br></th></tr>`);
+
 };
 
 $(() => {
@@ -60,6 +62,7 @@ $(() => {
   });
   // making the lists move
   $( "#watch-items, #buy-items, #read-items, #eat-items" ).sortable({
+    dropOnEmpty: false,
     connectWith: ".connectedLists"
   }).disableSelection();
 
