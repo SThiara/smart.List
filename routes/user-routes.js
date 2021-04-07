@@ -41,5 +41,11 @@ module.exports = () => {
   router.post('/login',(req, res) => {
     res.redirect("/lists/")
   });
+
+  router.post('/:id',(req, res) => {
+    console(req.params);
+  });
+
+
   return router;
 };
