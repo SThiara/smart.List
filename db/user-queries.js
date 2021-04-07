@@ -31,12 +31,14 @@ const updateUserProfile = (userObject) => {
     vars.push(userObject.password);
     query += `password = $${vars.length}\n`;
   }
+  const queryPartial = query.split('\n');
+  queryPartial.pop();
+  query = queryPartial.join(', ');
+
   if (!vars.length) {
     return;
   }
   vars.push(userObject.id);
-  const queryPartial = query.split('');
-  query = queryPartial.join(', ');
   query += `WHERE id = $${vars.length}
   RETURNING *`
   console.log(query);
