@@ -5,7 +5,7 @@ const escape =  function(str) {
 };
 
 const createToDoItem = (todo, id) => {
-  return `<tr id=todo_${id}class='todo-item'><th>${escape(todo)}</th></tr>`;
+  return `<tr id=todo_${id} class='todo-item'><th>${escape(todo)}</th></tr>`;
 };
 
 const renderTodos = (todos) => {
