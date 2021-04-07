@@ -34,7 +34,7 @@ module.exports = () => {
 
   // POST /lists/
   router.post("/", (req, res) => {
-    let id = 2; // need t get id from cookies
+    let id = req.session.id;
     let category = 'eat';
     addItem(req.body.text, id, category)
     .then((todoItem) => {
