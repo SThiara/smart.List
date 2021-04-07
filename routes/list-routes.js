@@ -54,7 +54,13 @@ module.exports = () => {
     }
   });
 
-
+  // POST /lists/move
+  router.post("/move", (req, res) => {
+    changeCategory( req.body.category, req.body.id)
+    .then(
+      res.send(200)
+      );
+    })
   /* router.post("/", (req, res) => {
     let id = req.session.id;
 
