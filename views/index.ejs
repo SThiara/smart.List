@@ -55,10 +55,12 @@
               <div class="card unsorted">
                 <div class="card-body">
                   <h5 class="card-title"> <!-- <i class="fas fa-video mr-2"></i> --> </i>Unsorted</h5>
+                  <form id="delete-item" type=submit action="/lists/delete" method="POST"> <!-- added to each table -->
                   <table class="table">
                     <tbody id="unsorted-items" class="connectedLists">
                     </tbody>
                   </table>
+                </form>
                 </div>
               </div>
             </div>
@@ -68,10 +70,12 @@
               <div class="card watch">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-video mr-2"></i></i>Watch</h5>
+                  <form id="delete-item" type=submit action="/lists/delete" method="POST">
                   <table class="table">
                     <tbody id="watch-items" class="connectedLists">
                     </tbody>
                   </table>
+                </form>
                 </div>
               </div>
             </div>
@@ -79,10 +83,12 @@
               <div class="card read">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-book mr-2"></i>Read</h5>
+                  <form id="delete-item" type=submit action="/lists/delete" method="POST">
                   <table class="table">
                     <tbody id="read-items" class="connectedLists">
                     </tbody>
                   </table>
+                </form>
                 </div>
               </div>
             </div>
@@ -92,10 +98,12 @@
               <div class="card buy">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-shopping-cart mr-2"></i></i>Buy</h5>
+                  <form id="delete-item" type=submit action="/lists/delete" method="POST">
                   <table class="table">
                     <tbody id="buy-items" class="connectedLists">
                     </tbody>
                   </table>
+                </form>
                 </div>
               </div>
             </div>
@@ -103,10 +111,12 @@
               <div class="card eat">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-utensils mr-2"></i></i>Eat</h5>
+                  <form id="delete-item" type=submit action="/lists/delete" method="POST">
                   <table class="table">
                     <tbody id="eat-items" class="connectedLists">
                     </tbody>
                   </table>
+                </form>
                 </div>
               </div>
             </div>

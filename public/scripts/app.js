@@ -5,8 +5,8 @@ const escape =  function(str) {
 };
 
 const createToDoItem = (todo, id) => {
-  return `<tr id=todo_${id} class='todo-item'><th>${escape(todo)}</th><td><button class="btn btn-danger">X</button></td></tr>`;
-};
+  return `<tr id=todo_${id} class='todo-item'><th>${escape(todo)}</th><td><button class="btn btn-danger" type=submit action="/lists/delete" method="POST">X</button></td></tr>`;
+}; // added a button to the created items
 
 const renderTodos = (todos) => {
   for (let todo of todos) {
@@ -73,6 +73,15 @@ $(() => {
     $.ajax({
       method:'GET',
       url:`/user/login/${id}`
+    });
+  });
+
+  $('.todo-item').on('submit', function(event) { // this is new
+    event.preventDefault();
+    $.ajax({
+      method:'POST',
+      url:`/lists/delete`,
+      data: $(this).attr('id')
     });
   });
 

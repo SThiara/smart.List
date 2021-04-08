@@ -7,7 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
-const { listByCategory, addItem, changeCategory } = require('../db/list-queries');
+const { listByCategory, addItem, changeCategory, deleteItem } = require('../db/list-queries');
 const { makeAPICalls } = require('../lib/makeAPICalls');
 
 module.exports = () => {
@@ -57,6 +57,15 @@ module.exports = () => {
   // POST /lists/move
   router.post("/move", (req, res) => {
     changeCategory(req.body.category, req.body.id)
+      .then(
+        res.send(200)
+      );
+  });
+
+  // POST /lists/delete
+  // this is new
+  router.post("/delete", (req, res) => {
+    deleteItem(req.body.id)
       .then(
         res.send(200)
       );
