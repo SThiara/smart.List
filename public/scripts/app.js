@@ -23,7 +23,7 @@ const listReload = () => {
 };
 
 const showUncategorize = () => {
-  $('.uncategorize').each(() => {
+  $('.uncategorize').first().each(() => {
     $('.uncategorize').hide();
     if(($('#uncategorize-items').children().length)){
       $('.uncategorize').show(200);
