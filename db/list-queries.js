@@ -4,14 +4,8 @@ const listByCategory = (category, id) => {
   let query = `SELECT * FROM list_items
     WHERE category = $1
     AND user_id = $2
-<<<<<<< HEAD
-    AND deleted = FALSE
-    ORDER BY id`;
-  return db.query(query, [category, id])
-=======
     ORDER BY name`;
   return db.query(query, [category, id]) // added deleted = 'f' check above
->>>>>>> test
     .then(data => {
       const items = data.rows;
       return items;
