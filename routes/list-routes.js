@@ -40,8 +40,8 @@ module.exports = () => {
         .then((category) => {
           addItem(req.body.text, id, category);
         })
-        .then((todoItem) => {
-          res.send(todoItem);
+        .then(() => {
+          res.send(200);
         })
         .catch(err => {
           res

@@ -52,7 +52,6 @@ $(() => {
         url:'/lists/',
         data: $(this).serialize(),
         success: (() => {
-          $('#todo-text').val('');
           $.ajax({
             method:'GET',
             url: '/lists/',
@@ -61,6 +60,7 @@ $(() => {
               for (let list of lists) {
                 renderTodos(list);
               }
+              $('#todo-text').val('');
             }
           });
         })
