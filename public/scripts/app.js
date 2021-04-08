@@ -24,7 +24,7 @@ const listReload = () => {
 
 $(() => {
   $('.uncategorize').each(() => {
-    if(!($('#uncategorize').children().length)){
+    if(!($('#uncategorize-items').children().length)){
       $('.uncategorize').hide();
     }
   })
