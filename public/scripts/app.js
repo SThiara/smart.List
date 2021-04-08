@@ -98,11 +98,7 @@ $(() => {
   });
 
   // making the lists move
-<<<<<<< HEAD
-  $( "#watch-items, #buy-items, #read-items, #eat-items, #unsorted-items" ).sortable({
-=======
   $('#watch-items, #buy-items, #read-items, #eat-items, #uncategorize-items').sortable({
->>>>>>> uncategorized
   //solution for dragging to empty table adapted from https://stackoverflow.com/questions/3751436/jquery-ui-sortable-unable-to-drop-tr-in-empty-tbody
     items: ">*:not(.sort-disabled)",
     connectWith: '.connectedLists',
