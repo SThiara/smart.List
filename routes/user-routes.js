@@ -45,6 +45,7 @@ module.exports = () => {
   //POST user/:id
   router.post('/:id',(req, res) => {
     const userObj = req.body;
+    console.log(req.body);
     userObj['id'] = req.session.id;
     updateUserProfile(userObj);
     res.redirect("/");
