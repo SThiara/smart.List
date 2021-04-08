@@ -5,7 +5,7 @@
 // Variables
 $font-stack: "Barlow", cursive, "Roboto";
 $font-colour:  #504f54;
-$background: #FFFFFF;
+$background: #f8f8ff;
 $nav-background: #effaf6;
 
 // Styles
@@ -32,7 +32,7 @@ body{
 
   .new-todo p {
     opacity: 0.8;
-  }
+  }q
 
   .new-todo p:hover {
     opacity: 1;
@@ -58,11 +58,11 @@ body{
  }
 
  .watch {
-   background-color: #E2E0EE;
+   background-color: #fffd7a;
  }
 
  .read {
-  background-color: #C6DFD6;
+  background-color: #C6fFD6;
 }
 
 .buy {
@@ -75,5 +75,9 @@ body{
  tr {
  cursor:grab;
  }
+ .uncategorize{
+   background-color: #f5a5a5;
+ }
+
 }
 
