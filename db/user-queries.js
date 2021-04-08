@@ -3,7 +3,7 @@ const db = require('./dbsetup');
 
 const findUser = (id) => {
   return db.query(`
-  SELECT name, email
+  SELECT name, email, avatar
   FROM users
   WHERE id = $1
   `, [id])
@@ -19,6 +19,10 @@ const findUser = (id) => {
 const updateUserProfile = (userObject) => {
   const vars = [];
   let query = `UPDATE users SET `
+  if (userObject.avatar) {
+    vars.push(userObject.avatar);
+    query += `avatar = $${vars.length}\n`;
+  }
   if (userObject.email) {
     vars.push(userObject.email);
     query += `email = $${vars.length}\n`;
