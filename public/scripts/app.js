@@ -15,7 +15,7 @@ const renderTodos = (todos) => {
 };
 
 const listReload = () => {
-  const categories = ['buy', 'watch', 'read', 'eat'];
+  const categories = ['buy', 'watch', 'read', 'eat', 'unsorted'];
   for (let category of categories) {
     $(`#${category}-items`).empty();
     $(`#${category}-items`).append(`<tr class="todo-item sort-disabled"><th></th></tr>`);
@@ -77,11 +77,7 @@ $(() => {
   });
 
   // making the lists move
-<<<<<<< HEAD
   $( "#watch-items, #buy-items, #read-items, #eat-items, #unsorted-items" ).sortable({
-=======
-  $('#watch-items, #buy-items, #read-items, #eat-items').sortable({
->>>>>>> 33ad2eaab95b9964d381acbdcf95a544e8bc05a0
   //solution for dragging to empty table adapted from https://stackoverflow.com/questions/3751436/jquery-ui-sortable-unable-to-drop-tr-in-empty-tbody
     items: ">*:not(.sort-disabled)",
     connectWith: '.connectedLists',
