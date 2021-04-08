@@ -22,15 +22,17 @@ const listReload = () => {
   }
 };
 
-$(() => {
+const showUncategorize = () => {
   $('.uncategorize').each(() => {
-    if(!($('#uncategorize-items').children().length)){
-      $('.uncategorize').hide();
+    $('.uncategorize').hide();
+    if(($('#uncategorize-items').children().length)){
+      $('.uncategorize').show(200);
     }
   })
+}
 
+$(() => {
   // clear textarea and get correct lists for user on reload
-  $('#todo-text').val('');
   $.ajax({
     method:'GET',
     url: '/lists/',
@@ -41,6 +43,9 @@ $(() => {
       }
     }
   });
+
+  showUncategorize();
+  $('#todo-text').val('');
 
   $('#add-item').on('submit', function(event) {
     event.preventDefault();
@@ -60,6 +65,7 @@ $(() => {
               for (let list of lists) {
                 renderTodos(list);
               }
+              showUncategorize();
               $('#todo-text').val('');
             }
           });
@@ -83,7 +89,7 @@ $(() => {
   });
 
   // making the lists move
-  $('#watch-items, #buy-items, #read-items, #eat-items, #uncategorize').sortable({
+  $('#watch-items, #buy-items, #read-items, #eat-items, #uncategorize-items').sortable({
   //solution for dragging to empty table adapted from https://stackoverflow.com/questions/3751436/jquery-ui-sortable-unable-to-drop-tr-in-empty-tbody
     items: ">*:not(.sort-disabled)",
     connectWith: '.connectedLists',
