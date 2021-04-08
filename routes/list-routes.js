@@ -35,6 +35,7 @@ module.exports = () => {
 
   // POST /lists/
   router.post("/", (req, res) => {
+    console.log('we got posted');
     let id = req.session.id;
     if (id){
       makeAPICalls(req.body.text)
