@@ -21,27 +21,13 @@ body{
     font-size: 30px;
   }
 
-  .bootstrap-cyan-button-normal-2 {
-    width: 70px;
-    height: 32px;
-    padding: 0px 10px 0px 10px;
-    background: #5bc0de;
-    color: #ffffff;
-    border-color: #46b8da;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 3px 3px 3px 3px;
-    font-weight: 400;
-    font-size: 14px;
-    text-align: center;
-    }
   }
   .card {
     opacity: 0.7;
   }
   .card:hover {
     opacity: 1;
-    box-shadow: 0.7em 0.7em  #effaf6;
+    box-shadow: 0.5em 0.5em #CDCDCD;
   }
 
   .new-todo p {
@@ -56,6 +42,10 @@ body{
     width: 8rm;
   }
 
+  .sort-disabled {
+  visibility: hidden;
+  }
+
   ul.list-group.col{
     padding-right:0;
     margin:1rem;
@@ -65,6 +55,25 @@ body{
     opacity: 0.7;
     background: transparent;
     color: transparent;
+ }
+
+ .watch {
+   background-color: #E2E0EE;
+ }
+
+ .read {
+  background-color: #C6DFD6;
+}
+
+.buy {
+  background-color: #BFD0E6;
+}
+ .eat {
+   background-color: #E9CBD1;
+ }
+
+ tr {
+ cursor:grab;
  }
 }
 
