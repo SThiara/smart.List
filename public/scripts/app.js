@@ -102,6 +102,7 @@ $(() => {
         url: '/lists/move',
         data: {id, category}
       });
+      showUncategorize();
     }
   }).disableSelection();
 });
