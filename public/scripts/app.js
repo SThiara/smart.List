@@ -23,7 +23,7 @@ const listReload = () => {
 };
 
 const showUncategorize = () => {
-  $('.uncategorize').first().each(() => {
+  $('.uncategorize').each(() => {
     $('.uncategorize').hide();
     if(($('#uncategorize-items').children().length)){
       $('.uncategorize').show(200);
@@ -41,12 +41,11 @@ $(() => {
       for (let list of lists) {
         renderTodos(list);
       }
-      showUncategorize();
-      $('#todo-text').val('');
     }
   });
 
-
+  showUncategorize();
+  $('#todo-text').val('');
 
   $('#add-item').on('submit', function(event) {
     event.preventDefault();
