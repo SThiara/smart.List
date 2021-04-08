@@ -6,7 +6,7 @@ const escape =  function(str) {
 
 const createToDoItem = (todo, id) => {
   return `<tr id=todo_${id} class='todo-item'><th>${escape(todo)}</th></tr>`;
-}; // added a button to the created items
+}; 
 
 const renderTodos = (todos) => {
   for (let todo of todos) {
@@ -26,10 +26,11 @@ const listReload = () => {
 
 const showUncategorize = () => {
   $('.uncategorize').first().each(() => {
-    $('.uncategorize').hide();
-    if(($('#uncategorize-items').children().length)){
+    if(!$('#uncategorize-items').children().length){
+      $('.uncategorize').hide();
+    } /* else{
       $('.uncategorize').show(200);
-    }
+    } */
   })
 }
 
@@ -43,7 +44,12 @@ $(() => {
       for (let list of lists) {
         renderTodos(list);
       }
-      showUncategorize();
+      if($('#uncategorize-items').children().length){
+        $('.uncategorize').show(200);
+      } else {
+        $('.uncategorize').hide();
+      }
+      //showUncategorize();
       $('#todo-text').val('');
     }
   });
