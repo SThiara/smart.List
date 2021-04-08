@@ -68,12 +68,10 @@
               <div class="card watch">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-video mr-2"></i></i>Watch</h5>
-                  <form id="delete-item" type=submit action="/lists/delete" method="POST">
                   <table class="table">
                     <tbody id="watch-items" class="connectedLists">
                     </tbody>
                   </table>
-                </form>
                 </div>
               </div>
             </div>
@@ -81,12 +79,10 @@
               <div class="card read">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-book mr-2"></i>Read</h5>
-                  <form id="delete-item" type=submit action="/lists/delete" method="POST">
                   <table class="table">
                     <tbody id="read-items" class="connectedLists">
                     </tbody>
                   </table>
-                </form>
                 </div>
               </div>
             </div>
@@ -96,12 +92,10 @@
               <div class="card buy">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-shopping-cart mr-2"></i></i>Buy</h5>
-                  <form id="delete-item" type=submit action="/lists/delete" method="POST">
                   <table class="table">
                     <tbody id="buy-items" class="connectedLists">
                     </tbody>
                   </table>
-                </form>
                 </div>
               </div>
             </div>
@@ -109,17 +103,28 @@
               <div class="card eat">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-utensils mr-2"></i></i>Eat</h5>
-                  <form id="delete-item" type=submit action="/lists/delete" method="POST">
                   <table class="table">
                     <tbody id="eat-items" class="connectedLists">
                     </tbody>
                   </table>
-                </form>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        <div class="row py-2 mx-5 px-4 justify-content-center align-items-stretch">
+          <div class="col px-md-5">
+            <div class="card delete">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-question-circle"></i> Delete</h5>
+                <table class="table">
+                  <tbody id="delete-items" class="connectedLists">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       <% } %>
     </main>
     <%- include("./partials/_footer"); %>

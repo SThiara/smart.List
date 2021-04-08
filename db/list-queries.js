@@ -1,10 +1,9 @@
 const db = require('./dbsetup');
 
 const listByCategory = (category, id) => {
-  let query = `SELECT name, category, id FROM list_items
+  let query = `SELECT * FROM list_items
     WHERE category = $1
     AND user_id = $2
-    AND deleted = 'f'
     ORDER BY name`;
   return db.query(query, [category, id]) // added deleted = 'f' check above
     .then(data => {

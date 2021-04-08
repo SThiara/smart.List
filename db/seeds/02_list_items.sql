@@ -28,3 +28,13 @@ INSERT INTO list_items (name, user_id, category) VALUES ('The Wretched of the Ea
 INSERT INTO list_items (name, user_id, category) VALUES ('ear plugs', 5, 'buy');
 INSERT INTO list_items (name, user_id, category) VALUES ('Hyperspace', 5, 'read');
 INSERT INTO list_items (name, user_id, category) VALUES ('Four Bros Pizza', 5, 'eat');
+INSERT INTO list_items (name, user_id, category) VALUES ('test', 1, 'uncategorize');
+INSERT INTO list_items (name, user_id, category) VALUES ('test2', 1, 'uncategorize');
+INSERT INTO list_items (name, user_id, category) VALUES ('test3', 2, 'uncategorize');
+INSERT INTO list_items (name, user_id, category) VALUES ('test4', 2, 'uncategorize');
+INSERT INTO list_items (name, user_id, category) VALUES ('test5', 3, 'uncategorize');
+INSERT INTO list_items (name, user_id, category) VALUES ('test6', 3, 'uncategorize');
+INSERT INTO list_items (name, user_id, category) VALUES ('test7', 4, 'uncategorize');
+INSERT INTO list_items (name, user_id, category) VALUES ('test8', 4, 'uncategorize');
+INSERT INTO list_items (name, user_id, category) VALUES ('test9', 5, 'uncategorize');
+INSERT INTO list_items (name, user_id, category) VALUES ('test100', 5, 'uncategorize');
