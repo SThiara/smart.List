@@ -6,7 +6,7 @@
 $font-stack: "Barlow", cursive, "Roboto";
 $font-colour:  #504f54;
 $background: #f8f8ff;
-$nav-background: #effaf6;
+$nav-background: #cdfafa;
 
 // Styles
 body{
@@ -15,12 +15,11 @@ body{
 
   .navbar{
     background-color: $nav-background;
-  .navbar-brand{
-    font-weight: 700;
-    color:$font-colour;
-    font-size: 30px;
-  }
-
+    .navbar-brand{
+      font-weight: 700;
+      color:$font-colour;
+      font-size: 30px;
+    }
   }
   .card {
     opacity: 0.7;

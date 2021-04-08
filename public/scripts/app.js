@@ -10,6 +10,9 @@ const createToDoItem = (todo, id) => {
 
 const renderTodos = (todos) => {
   for (let todo of todos) {
+    if (todo.category ==='uncategorize'){
+        console.log('///im here')
+    }
     if (!todo.deleted) {
       $(`#${todo.category}-items`).append(createToDoItem(todo.name, todo.id));
     }
@@ -65,6 +68,7 @@ $(() => {
             url: '/lists/',
             success: (lists) => {
               listReload();
+              $(`#uncategorize-items`).empty();
               for (let list of lists) {
                 renderTodos(list);
               }
