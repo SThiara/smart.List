@@ -5,8 +5,8 @@
 // Variables
 $font-stack: "Barlow", cursive, "Roboto";
 $font-colour:  #504f54;
-$background: #FFFFFF;
-$nav-background: #effaf6;
+$background: #f8f8ff;
+$nav-background: #cdfafa;
 
 // Styles
 body{
@@ -15,12 +15,11 @@ body{
 
   .navbar{
     background-color: $nav-background;
-  .navbar-brand{
-    font-weight: 700;
-    color:$font-colour;
-    font-size: 30px;
-  }
-
+    .navbar-brand{
+      font-weight: 700;
+      color:$font-colour;
+      font-size: 30px;
+    }
   }
   .card {
     opacity: 0.7;
@@ -32,7 +31,7 @@ body{
 
   .new-todo p {
     opacity: 0.8;
-  }
+  }q
 
   .new-todo p:hover {
     opacity: 1;
@@ -58,11 +57,11 @@ body{
  }
 
  .watch {
-   background-color: #f1e789;
+   background-color: #fffd7a;
  }
 
  .read {
-  background-color: #C6DFD6;
+  background-color: #C6fFD6;
 }
 
 .buy {
@@ -79,5 +78,12 @@ body{
    background-color: #f5a5a5;
  }
 
+<<<<<<< HEAD
+=======
+ .delete {
+  background-color: $gray-600;
+ }
+
+>>>>>>> test
 }
 
