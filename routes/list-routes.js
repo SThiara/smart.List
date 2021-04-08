@@ -14,12 +14,7 @@ module.exports = () => {
 
   // Get /lists/
   router.get("/", (req, res) => {
-<<<<<<< HEAD
-    let id = 2;
-    const categories=['eat', 'buy', 'read', 'watch', 'unsorted'];
-=======
     const categories = ['eat', 'buy', 'read', 'watch','uncategorize'];
->>>>>>> uncategorized
     let categoriesPromise = [];
 
     // puts all the query calls by categories and resolve all the promises together
