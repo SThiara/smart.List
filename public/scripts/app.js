@@ -20,8 +20,7 @@ const listReload = () => {
     $(`#${category}-items`).empty();
     $(`#${category}-items`).append(`<tr class="todo-item sort-disabled"><th></th></tr>`);
   }
-
-}
+};
 
 $(() => {
   // clear textarea and get correct lists for user on reload
