@@ -23,6 +23,12 @@ const listReload = () => {
 };
 
 $(() => {
+  $('.uncategorize').each(() => {
+    if(!($('#uncategorize').children().length)){
+      $('.uncategorize').hide();
+    }
+  })
+
   // clear textarea and get correct lists for user on reload
   $('#todo-text').val('');
   $.ajax({
@@ -77,7 +83,7 @@ $(() => {
   });
 
   // making the lists move
-  $('#watch-items, #buy-items, #read-items, #eat-items').sortable({
+  $('#watch-items, #buy-items, #read-items, #eat-items, #uncategorize').sortable({
   //solution for dragging to empty table adapted from https://stackoverflow.com/questions/3751436/jquery-ui-sortable-unable-to-drop-tr-in-empty-tbody
     items: ">*:not(.sort-disabled)",
     connectWith: '.connectedLists',
