@@ -51,6 +51,5 @@ module.exports = () => {
     res.redirect("/");
   });
 
-
   return router;
 };

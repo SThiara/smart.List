@@ -1,14 +1,14 @@
-<nav class="shadow-sm navbar">
+<nav class="shadow-sm navbar sticky-top">
   <a class="navbar-brand" href="/">smart.List</a>
     <div class="user d-flex">
       <% if (user) {%>
-        <i class="fas <%= user.avatar %> fa-7x mr-3"></i>
+        <i class="fas <%= user.avatar %> fa-5x mr-3"></i>
         <div class="mx-2 my-1">
           <p class="user-name my-1"> <%= user.name%></p>
           <p class="user-email my-1"> <%= user.email%></p>
           <a href="/user/edit"><i class="fas fa-user-edit my-1 mr-1"></i> Edit your profile </a>
         </div>
-        <form class="form-inline ml-3" action="/user/logout" method="POST">
+        <form class="form-inline" action="/user/logout" method="POST">
           <button type="submit" class ="btn btn-outline-primary">
             Logout
           </button>
