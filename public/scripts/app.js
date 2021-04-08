@@ -4,18 +4,22 @@ const escape =  function(str) {
   return div.innerHTML;
 };
 
-const createToDoItem = (todo) => {
-  return `<tr class='todo-item'><th>${escape(todo)}</th></tr>`;
+const createToDoItem = (todo, id) => {
+  return `<tr id=todo_${id} class='todo-item'><th>${escape(todo)}</th></tr>`;
 };
 
 const renderTodos = (todos) => {
-  for(let todo of todos){
-    console.log('todo', todo);
-    $(`#${todo.category}-items`).append(createToDoItem(todo.name));
+  for (let todo of todos) {
+    $(`#${todo.category}-items`).append(createToDoItem(todo.name, todo.id));
   }
-  //adds empty table row to the end of each item, made invisible with css
-  $(`#${todos[0].category}-items`).append(`<tr class='todo-item sort-disabled'><th></th></tr>`);
+};
 
+const listReload = () => {
+  const categories = ['buy', 'watch', 'read', 'eat'];
+  for (let category of categories) {
+    $(`#${category}-items`).empty();
+    $(`#${category}-items`).append(`<tr class="todo-item sort-disabled"><th></th></tr>`);
+  }
 };
 
 $(() => {
@@ -25,74 +29,71 @@ $(() => {
     method:'GET',
     url: '/lists/',
     success: (lists) => {
-      for (let list of lists){
+      listReload();
+      for (let list of lists) {
         renderTodos(list);
       }
     }
   });
 
-  $('#add-item').on("submit", function(event) {
+  $('#add-item').on('submit', function(event) {
     event.preventDefault();
-    $('.error').hide()
-    const len = $("#todo-text").val().trim().length;
-    if (len){
+    $('.error').hide();
+    const len = $('#todo-text').val().trim().length;
+    if (len) {
       $.ajax({
         method:'POST',
         url:'/lists/',
         data: $(this).serialize(),
         success: (() => {
           $('#todo-text').val('');
-          //$(`#${data.category}-items`).append(createToDoItem(`${data.name}`));
           $.ajax({
             method:'GET',
             url: '/lists/',
             success: (lists) => {
-              $("#buy-items").empty();
-              $("#eat-items").empty();
-              $("#read-items").empty();
-              $("#watch-items").empty();
-              for (let list of lists){
+              listReload();
+              for (let list of lists) {
                 renderTodos(list);
               }
             }
-          })
+          });
         })
       }).fail(() => {
         $('.error').text('Please log in before adding an item').slideDown(300);
       });
     } else {
-      $(".error").text('Empty text means you got nothing to do....').slideDown(300);
+      $('.error').text('Empty text means you got nothing to do....').slideDown(300);
     }
-  })
+  });
 
   $('.login').on('submit', function(event) {
     event.preventDefault();
     const max = 5;
-    const id = Math.floor(Math.random() * (max - 1) + 1)
+    const id = Math.floor(Math.random() * (max - 1) + 1);
     $.ajax({
       method:'GET',
       url:`/user/login/${id}`
     });
   });
+
   // making the lists move
+<<<<<<< HEAD
   $( "#watch-items, #buy-items, #read-items, #eat-items, #unsorted-items" ).sortable({
+=======
+  $('#watch-items, #buy-items, #read-items, #eat-items').sortable({
+>>>>>>> 33ad2eaab95b9964d381acbdcf95a544e8bc05a0
   //solution for dragging to empty table adapted from https://stackoverflow.com/questions/3751436/jquery-ui-sortable-unable-to-drop-tr-in-empty-tbody
     items: ">*:not(.sort-disabled)",
-    connectWith: ".connectedLists"
-  }).disableSelection();
-
-  //drag n drop functionality
-  $(".todo-item").on('drag', function(event) {
-    const id = $(this).attr('id');
-    $("div.card").on('drop', function (event) {
-      const category = $(this).attr('id').split('-')[0];
+    connectWith: '.connectedLists',
+    receive: (event, ui) => {
+      // update only when an item is dropped (received) into a different list,
+      const id = ui.item.attr('id').split('_')[1];
+      const category = ui.item.parent().attr('id').split('-')[0];
       $.ajax({
-        url:'/lists/move',
         method: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({"id": id, "category": category})
-      })
-    });
-  })
-
+        url: '/lists/move',
+        data: {id, category}
+      });
+    }
+  }).disableSelection();
 });
