@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
     <title>To Do - smart.List</title>
   </head>
   <body class="d-flex flex-column">
@@ -54,25 +52,22 @@
         <section class="container d-flex flex-column justify-content-space-around align-items-space-around">
           <div class="row py-5 mx-md-n10 justify-content-center align-items-stretch">
             <div class="col-5 px-md-5">
-
               <div class="card watch">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-video mr-2"></i></i>Watch</h5>
                   <table class="table">
-                    <tbody id="watch-items">
+                    <tbody id="watch-items" class="connectedLists">
                     </tbody>
                   </table>
                 </div>
               </div>
-
             </div>
             <div class="col-5 px-md-5">
-
               <div class="card read">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-book mr-2"></i>Read</h5>
                   <table class="table">
-                    <tbody id="read-items">
+                    <tbody id="read-items" class="connectedLists">
                     </tbody>
                   </table>
                 </div>
@@ -81,38 +76,36 @@
           </div>
           <div class="row py-0.5 mx-md-n10 justify-content-center align-items-stretch">
             <div class="col-5 pb-5 px-md-5">
-
               <div class="card buy">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-shopping-cart mr-2"></i></i>Buy</h5>
                   <table class="table">
-                    <tbody id="buy-items">
+                    <tbody id="buy-items" class="connectedLists">
                     </tbody>
                   </table>
                 </div>
               </div>
-
             </div>
             <div class="col-5 pb-5 px-md-5">
-
               <div class="card eat">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-utensils mr-2"></i></i>Eat</h5>
                   <table class="table">
-                    <tbody id="eat-items">
+                    <tbody id="eat-items" class="connectedLists">
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
-
-
           </div>
         </section>
       <% } %>
 
     </main>
     <!-- Bootstrap JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
