@@ -22,9 +22,17 @@ const listReload = () => {
   }
 };
 
+const showUncategorize = () => {
+  $('.uncategorize').first().each(() => {
+    $('.uncategorize').hide();
+    if(($('#uncategorize-items').children().length)){
+      $('.uncategorize').show(200);
+    }
+  })
+}
+
 $(() => {
   // clear textarea and get correct lists for user on reload
-  $('#todo-text').val('');
   $.ajax({
     method:'GET',
     url: '/lists/',
@@ -36,6 +44,9 @@ $(() => {
     }
   });
 
+  showUncategorize();
+  $('#todo-text').val('');
+
   $('#add-item').on('submit', function(event) {
     event.preventDefault();
     $('.error').hide();
@@ -46,7 +57,6 @@ $(() => {
         url:'/lists/',
         data: $(this).serialize(),
         success: (() => {
-          $('#todo-text').val('');
           $.ajax({
             method:'GET',
             url: '/lists/',
@@ -55,6 +65,8 @@ $(() => {
               for (let list of lists) {
                 renderTodos(list);
               }
+              showUncategorize();
+              $('#todo-text').val('');
             }
           });
         })
@@ -86,7 +98,11 @@ $(() => {
   });
 
   // making the lists move
+<<<<<<< HEAD
   $( "#watch-items, #buy-items, #read-items, #eat-items, #unsorted-items" ).sortable({
+=======
+  $('#watch-items, #buy-items, #read-items, #eat-items, #uncategorize-items').sortable({
+>>>>>>> uncategorized
   //solution for dragging to empty table adapted from https://stackoverflow.com/questions/3751436/jquery-ui-sortable-unable-to-drop-tr-in-empty-tbody
     items: ">*:not(.sort-disabled)",
     connectWith: '.connectedLists',
@@ -99,6 +115,7 @@ $(() => {
         url: '/lists/move',
         data: {id, category}
       });
+      showUncategorize();
     }
   }).disableSelection();
 });
