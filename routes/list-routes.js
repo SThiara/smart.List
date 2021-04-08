@@ -14,7 +14,7 @@ module.exports = () => {
 
   // Get /lists/
   router.get("/", (req, res) => {
-    const categories = ['eat', 'buy', 'read', 'watch'];
+    const categories = ['eat', 'buy', 'read', 'watch','uncategorize'];
     let categoriesPromise = [];
 
     // puts all the query calls by categories and resolve all the promises together
@@ -40,8 +40,8 @@ module.exports = () => {
         .then((category) => {
           addItem(req.body.text, id, category);
         })
-        .then((todoItem) => {
-          res.send(todoItem);
+        .then(() => {
+          res.send(200);
         })
         .catch(err => {
           res
