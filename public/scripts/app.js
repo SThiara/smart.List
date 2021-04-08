@@ -10,13 +10,18 @@ const createToDoItem = (todo, id) => {
 
 const renderTodos = (todos) => {
   for (let todo of todos) {
-    console.log('todo', todo);
     $(`#${todo.category}-items`).append(createToDoItem(todo.name, todo.id));
   }
-  //adds empty table row to the end of each item, made invisible with css
-  $(`#${todos[0].category}-items`).append(`<tr class='todo-item sort-disabled'><th></th></tr>`);
-
 };
+
+const listReload = () => {
+  const categories = ['buy', 'watch', 'read', 'eat'];
+  for (let category of categories) {
+    $(`#${category}-items`).empty();
+    $(`#${category}-items`).append(`<tr class="todo-item sort-disabled"><th></th></tr>`);
+  }
+
+}
 
 $(() => {
   // clear textarea and get correct lists for user on reload
@@ -25,6 +30,7 @@ $(() => {
     method:'GET',
     url: '/lists/',
     success: (lists) => {
+      listReload();
       for (let list of lists) {
         renderTodos(list);
       }
@@ -42,15 +48,11 @@ $(() => {
         data: $(this).serialize(),
         success: (() => {
           $('#todo-text').val('');
-          //$(`#${data.category}-items`).append(createToDoItem(`${data.name}`));
           $.ajax({
             method:'GET',
             url: '/lists/',
             success: (lists) => {
-              $('#buy-items').empty();
-              $('#eat-items').empty();
-              $('#read-items').empty();
-              $('#watch-items').empty();
+              listReload();
               for (let list of lists) {
                 renderTodos(list);
               }
@@ -78,6 +80,7 @@ $(() => {
   // making the lists move
   $('#watch-items, #buy-items, #read-items, #eat-items').sortable({
   //solution for dragging to empty table adapted from https://stackoverflow.com/questions/3751436/jquery-ui-sortable-unable-to-drop-tr-in-empty-tbody
+    items: ">*:not(.sort-disabled)",
     connectWith: '.connectedLists',
     receive: (event, ui) => {
       // update only when an item is dropped (received) into a different list,
