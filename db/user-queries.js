@@ -7,18 +7,18 @@ const findUser = (id) => {
   FROM users
   WHERE id = $1
   `, [id])
-  .then((user) => {
-    if (user){
-      return user.rows[0];
-    }
-    return null;
-  })
+    .then((user) => {
+      if (user) {
+        return user.rows[0];
+      }
+      return null;
+    });
 };
 
 //updates user email, password and name in the database
 const updateUserProfile = (userObject) => {
   const vars = [];
-  let query = `UPDATE users SET `
+  let query = `UPDATE users SET `;
   if (userObject.avatar) {
     vars.push(userObject.avatar);
     query += `avatar = $${vars.length}\n`;
@@ -44,14 +44,14 @@ const updateUserProfile = (userObject) => {
   }
   vars.push(userObject.id);
   query += `WHERE id = $${vars.length}
-  RETURNING *`
+  RETURNING *`;
   return db.query(query, vars)
-  .then((user) => {
-    if (user){
-      return user.rows[0];
-    }
-    return null;
-  })
+    .then((user) => {
+      if (user) {
+        return user.rows[0];
+      }
+      return null;
+    });
 };
 
 module.exports = {

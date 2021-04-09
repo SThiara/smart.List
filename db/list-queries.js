@@ -36,9 +36,9 @@ const changeCategory = (category, id) => {
   WHERE id = $2
   RETURNING *
   `, [category, id])
-  .then((item) => {
-    return item.rows[0];
-  })
+    .then((item) => {
+      return item.rows[0];
+    });
 };
 
 const deleteItem = id => {
@@ -48,10 +48,10 @@ const deleteItem = id => {
   WHERE id = $1
   RETURNING *
   `, [id])
-  .then((item) => {
-    return item.rows[0];
-  })
-}
+    .then((item) => {
+      return item.rows[0];
+    });
+};
 
 module.exports = {
   listByCategory,
