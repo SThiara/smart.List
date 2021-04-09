@@ -5,7 +5,7 @@ const listByCategory = (category, id) => {
     WHERE category = $1
     AND user_id = $2
     ORDER BY name`;
-  return db.query(query, [category, id]) // added deleted = 'f' check above
+  return db.query(query, [category, id])
     .then(data => {
       const items = data.rows;
       return items;
@@ -41,7 +41,7 @@ const changeCategory = (category, id) => {
   })
 };
 
-const deleteItem = id => { // this is new
+const deleteItem = id => {
   return db.query(`
   UPDATE list_items
   SET deleted = TRUE
