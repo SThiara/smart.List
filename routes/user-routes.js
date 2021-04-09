@@ -7,7 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
-const {findUser, updateUserProfile} = require('../db/user-queries')
+const {findUser, updateUserProfile} = require('../db/user-queries');
 
 module.exports = () => {
   router.get('/login/:id',(req, res) => {
@@ -17,24 +17,24 @@ module.exports = () => {
 
   // GET /user/edit
   router.get("/edit", (req, res) => {
-    if (res.err){
+    if (res.err) {
       return res.redirect("/*");
     }
     findUser(req.session.id)
-    .then( user => {
-      const templateVars = {user}
-      res.render("user_profile", templateVars);
-    });
+      .then(user => {
+        const templateVars = {user};
+        res.render("user_profile", templateVars);
+      });
   });
 
   router.post('/logout', (req, res) => {
     req.session = null;
     res.redirect('/');
-  })
+  });
 
   // GET /user/*
   router.get("/*", (req, res) => {
-    res.status(404).send('Error 404: Page not found!')
+    res.status(404).send('Error 404: Page not found!');
   });
 
   router.post('/login/:id',(req, res) => {
