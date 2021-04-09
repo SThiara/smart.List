@@ -10,8 +10,8 @@ const createToDoItem = (todo, id) => {
 
 const renderTodos = (todos) => {
   for (let todo of todos) {
-    if (todo.category ==='uncategorize'){
-        console.log('///im here')
+    if (todo.category === 'uncategorize') {
+      console.log('///im here');
     }
     if (!todo.deleted) {
       $(`#${todo.category}-items`).append(createToDoItem(todo.name, todo.id));
@@ -29,13 +29,13 @@ const listReload = () => {
 
 const showUncategorize = () => {
   $('.uncategorize').first().each(() => {
-    if(!$('#uncategorize-items').children().length){
+    if (!$('#uncategorize-items').children().length) {
       $('.uncategorize').hide();
-    }  else{
+    }  else {
       $('.uncategorize').show(200);
     }
-  })
-}
+  });
+};
 
 $(() => {
   // clear textarea and get correct lists for user on reload
@@ -47,7 +47,7 @@ $(() => {
       for (let list of lists) {
         renderTodos(list);
       }
-      showUncategorize()
+      showUncategorize();
       $('#todo-text').val('');
     }
   });
@@ -92,13 +92,13 @@ $(() => {
     $.ajax({
       method:'GET',
       url:`/user/login/${id}`,
-      success: function (res) {
+      success: function() {
         window.location.reload(1);
       },
-      error: function (err) {
+      error: function(err) {
         console.log(err);
       },
-    })
+    });
   });
 
   // making the lists move
@@ -111,22 +111,22 @@ $(() => {
       const id = ui.item.attr('id').split('_')[1];
       const category = ui.item.parent().attr('id').split('-')[0];
       // add to list if not delete
-      if (category !== 'delete'){
-      $.ajax({
-        method: 'POST',
-        url: '/lists/move',
-        data: {id, category}
-      })
-    } else{
-      $.ajax({
-        method: 'POST',
-        url: '/lists/delete',
-        data: {id},
-        success: () => {
-          ui.item.fadeOut();
-        }
-        })
-      };
+      if (category !== 'delete') {
+        $.ajax({
+          method: 'POST',
+          url: '/lists/move',
+          data: {id, category}
+        });
+      } else {
+        $.ajax({
+          method: 'POST',
+          url: '/lists/delete',
+          data: {id},
+          success: () => {
+            ui.item.fadeOut();
+          }
+        });
+      }
       showUncategorize();
     }
   }).disableSelection();
