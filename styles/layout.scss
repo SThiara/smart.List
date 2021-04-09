@@ -6,7 +6,7 @@
 $font-stack: "Barlow", cursive, "Roboto";
 $font-colour:  #504f54;
 $background: #f8f8ff;
-$nav-background: #effaf6;
+$nav-background: #BBFAFA;
 
 // Styles
 body{
@@ -15,12 +15,11 @@ body{
 
   .navbar{
     background-color: $nav-background;
-  .navbar-brand{
-    font-weight: 700;
-    color:$font-colour;
-    font-size: 30px;
-  }
-
+    .navbar-brand{
+      font-weight: 700;
+      color:$font-colour;
+      font-size: 30px;
+    }
   }
   .card {
     opacity: 0.7;
@@ -62,14 +61,14 @@ body{
  }
 
  .read {
-  background-color: #C6fFD6;
+  background-color: #BFD0E6;
 }
 
 .buy {
-  background-color: #BFD0E6;
+  background-color: #E9CBD1;
 }
  .eat {
-   background-color: #E9CBD1;
+   background-color: #6af8ac;
  }
 
  tr {
@@ -77,6 +76,10 @@ body{
  }
  .uncategorize{
    background-color: #f5a5a5;
+ }
+
+ .delete {
+  background-color: $gray-600;
  }
 
 }
