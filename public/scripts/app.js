@@ -91,8 +91,14 @@ $(() => {
     const id = Math.floor(Math.random() * (max - 1) + 1);
     $.ajax({
       method:'GET',
-      url:`/user/login/${id}`
-    });
+      url:`/user/login/${id}`,
+      success: function (res) {
+        window.location.reload(1);
+      },
+      error: function (err) {
+        console.log(err);
+      },
+    })
   });
 
   // making the lists move
