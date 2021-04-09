@@ -10,7 +10,7 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 const cookieSession = require('cookie-session');
-const {findUser} = require('./db/user-queries')
+const {findUser} = require('./db/user-queries');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -48,12 +48,12 @@ app.use("/lists", listsRoutes());
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  let templateVars ={};
+  let templateVars = {};
   findUser(req.session.id)
-  .then(user => {
-    templateVars = {user};
-    res.render("index", templateVars)
-  })
+    .then(user => {
+      templateVars = {user};
+      res.render("index", templateVars);
+    });
 });
 
 app.listen(PORT, () => {
