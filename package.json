@@ -1,5 +1,5 @@
 {
-  "name": "node-skeleton",
+  "name": "smart.List",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,7 +9,7 @@
     "local": "./node_modules/.bin/nodemon -L --ignore public/",
     "db:reset": "node bin/resetdb.js"
   },
-  "author": "Lighthouse Labs",
+  "author": "Martin Ho, Sasha Mahalia, Sajan Thiara",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
@@ -26,6 +26,7 @@
     "pg-native": "^3.0.0"
   },
   "devDependencies": {
+    "eslint": "^7.27.0",
     "nodemon": "^1.19.1"
   }
 }

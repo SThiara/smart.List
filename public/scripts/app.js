@@ -38,6 +38,7 @@ const showUncategorize = () => {
 };
 
 $(() => {
+  $('.uncategorize').hide();
   // clear textarea and get correct lists for user on reload
   $.ajax({
     method:'GET',
@@ -47,10 +48,11 @@ $(() => {
       for (let list of lists) {
         renderTodos(list);
       }
-      showUncategorize();
       $('#todo-text').val('');
+      showUncategorize();
     }
   });
+
 
   // submitting a new todo
   $('#add-item').on('submit', function(event) {
